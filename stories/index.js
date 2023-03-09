@@ -12,6 +12,7 @@ import Appointment from "components/Appointment/index.js";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
 import Show from "components/Appointment/Show";
+
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -98,6 +99,7 @@ storiesOf("Button", module)
       ))
       .add("Clickable", () => (
         <InterviewerListItem
+          id={interviewer.id}
           name={interviewer.name}
           avatar={interviewer.avatar}
           setInterviewer={() => action("setInterviewer")(interviewer.id)}
@@ -135,22 +137,19 @@ storiesOf("Button", module)
       ));
 
       storiesOf("Appointment", module)
-  .addParameters({
-    backgrounds: [{ name: "white", value: "#fff", default: true }]
-  })
-  .add("Appointment", () => <Appointment />)
-  storiesOf("Appointment", module)
-  .addParameters({
-    backgrounds: [{ name: "white", value: "#fff", default: true }]
-  })
-  .add("Appointment", () => <Appointment />)
-  .add("Appointment with Time", () => <Appointment time="12pm" />);
+      .addParameters({
+        backgrounds: [{ name: "white", value: "#fff", default: true }],
+      })
+      .add("Appointment", () => <Appointment />)
+      .add("Appointment with Time", () => <Appointment time="12pm" />)
+      .add("Header", () => <Header time="12pm" />)
+      .add("Empty", () => <Empty onAdd={action("onAdd")} />)
+      .add("Show", () => (
+        <Show
+          student="Lydia Miller-Jones"
+          interviewer={interviewer}
+          onEdit={action("onEdit")}
+          onDelete={action("onDelete")}
+        />
+      ));
 
-  storiesOf("Appointment", module)
-.addParameters({
-backgrounds: [{ name: "white", value: "#fff", default: true }]
-})
-.add("Appointment", () => <Appointment />)
-.add("Appointment with Time", () => <Appointment time="12pm" />)
-.add("Header", () => <Header time="12pm" />)
-.add("Empty", () => <Empty onAdd={action("onAdd")}/>);
