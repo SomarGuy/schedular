@@ -7,6 +7,7 @@ import "index.scss";
 import DayList from "components/DayList";
 import Button from "components/Button";
 import InterviewerListItem from "components/InterviewerListItem";
+import InterviewerList from "components/InterviewerList";
 
 storiesOf("Button", module)
   .addParameters({
@@ -94,10 +95,9 @@ storiesOf("Button", module)
       ))
       .add("Clickable", () => (
         <InterviewerListItem
-          id={interviewer.id}
           name={interviewer.name}
           avatar={interviewer.avatar}
-          setInterviewer={action("setInterviewer")}
+          setInterviewer={() => action("setInterviewer")(interviewer.id)}
         />
       ));
 
