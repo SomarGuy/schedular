@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Button from "components/Button";
-import InterviewerList from "components/InterviewerList";
-
+import Button from 'components/Button';
+import InterviewerList from 'components/InterviewerList';
 
 export default function Form(props) {
-  const [student, setStudent] = useState(props.student || "");
+  const [student, setStudent] = useState(props.student || '');
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
   const reset = () => {
-    setStudent("");
+    setStudent('');
     setInterviewer(null);
   };
+
   const cancel = () => {
     reset();
     props.onCancel();
@@ -27,21 +27,24 @@ export default function Form(props) {
             placeholder="Enter Student Name"
             onChange={(event) => setStudent(event.target.value)}
             value={student}
-            interviewer={interviewer}
           />
         </form>
         <InterviewerList
           interviewers={props.interviewers}
           value={interviewer}
-          onChange={(interviewer) => setInterviewer(interviewer)}
+          onChange={(selectedInterviewer) => setInterviewer(selectedInterviewer)}
         />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={() => cancel()}>
+          <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={() => props.onSave(student, interviewer)}>
+          <Button
+            confirm
+            onClick={() => props.onSave(student, interviewer)}
+            disabled={!student || !interviewer}
+          >
             Save
           </Button>
         </section>
