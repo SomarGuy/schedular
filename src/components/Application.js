@@ -1,6 +1,7 @@
 import "components/Application.scss";
 import DayList from "./DayList";
 import React, { useState } from "react";
+import Appointment from "./Appointment";
 const days = [
   {
     id: 1,
