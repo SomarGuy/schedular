@@ -17,6 +17,7 @@ import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
 import Form from "components/Appointment/Form"
 import { Fragment } from "react";
+import useVisualMode from "hooks/useVisualMode";
 
 storiesOf("Button", module)
   .addParameters({
