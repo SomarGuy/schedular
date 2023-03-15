@@ -20,6 +20,8 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
+    console.log("Appointment ID:", props.id);
+    console.log("Interview:", interview);
     props.bookInterview(props.id, interview)
       .then(() => {
         transition(SHOW);
@@ -28,6 +30,7 @@ export default function Appointment(props) {
         console.log(error);
       });
   }
+  
 
   return (
     <article className="appointment">
