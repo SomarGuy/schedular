@@ -39,7 +39,6 @@ export default function Application(props) {
   }, []);
 
   function bookInterview(id, interview) {
-    console.log(id, interview);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -48,7 +47,12 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment
     };
+    setState({
+      ...state,
+      appointments
+    });
   }
+  
 
   const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
