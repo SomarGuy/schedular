@@ -42,10 +42,10 @@ export default function Appointment(props) {
   const confirmDelete = (id) => {
     transition(DELETING, true);
     props
-      .cancelInterview(id)
-      .then(() => transition(EMPTY))
-      .catch(error => transition(ERROR_DELETE, true))
-  }
+    .cancelInterview(id)
+    .then(() => transition(EMPTY))
+    .catch(error => transition(ERROR_DELETE, true))
+    }
 
 
   return (
@@ -77,19 +77,8 @@ export default function Appointment(props) {
         student={props.interview.student}
         interviewer={props.interview.interviewer.id}
       />}
-      {mode === ERROR_SAVE && 
-        <Error 
-          message="Could not create appointment"
-          onClose={back}
-        />
-      }
-      {mode === ERROR_DELETE && 
-        <Error 
-          message="Could not cancel appointment"
-          onClose={back}
-        />
-      }
-
+      {mode === ERROR_SAVE && <Error message="Couldn't save the appointment" onClose={() => back()} />}
+      {mode === ERROR_DELETE && <Error message="Couldn't delete the appointment" onClose={() => back()} />}
     </article>
   );
 }

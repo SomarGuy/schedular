@@ -52,7 +52,6 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment,
     };
-    setState({ ...state, appointments });
 
     // Send a PUT request to the API to update the appointment information
     return axios
@@ -70,7 +69,6 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment,
     };
-    setState({ ...state, appointments });
 
     // Send a DELETE request to the API to remove the appointment
     return axios.delete(`/api/appointments/${id}`).then((response) => {
