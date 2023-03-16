@@ -23,7 +23,7 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-  //function that saves a new interview object and send it to bookInterview
+
   const save = (name, interviewer) => {
     const interview = {
       student: name,
@@ -35,11 +35,10 @@ export default function Appointment(props) {
       .then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE, true))
   };
-  //mode send to confirm dialog box
   const onDelete = () => {
     transition(CONFIRM)
   };
-  //if confirm on dialog box it will delete
+
   const confirmDelete = (id) => {
     transition(DELETING, true);
     props
@@ -78,8 +77,18 @@ export default function Appointment(props) {
         student={props.interview.student}
         interviewer={props.interview.interviewer.id}
       />}
-      {mode === ERROR_SAVE && <Error message="Couldn't save the appointment" onClose={() => back()} />}
-      {mode === ERROR_DELETE && <Error message="Couldn't delete the appointment" onClose={() => back()} />}
+      {mode === ERROR_SAVE && 
+        <Error 
+          message="Could not create appointment"
+          onClose={back}
+        />
+      }
+      {mode === ERROR_DELETE && 
+        <Error 
+          message="Could not cancel appointment"
+          onClose={back}
+        />
+      }
 
     </article>
   );
