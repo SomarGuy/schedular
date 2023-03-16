@@ -1,25 +1,26 @@
 import { useState } from "react";
+import Empty from "components/Appointment/Empty";
 
-export default function useVisualMode(initial) {
-  const [mode, setMode] = useState(initial);
-  const [history, setHistory] = useState([initial]);
+export default function useVisualMode(initialMode) {
+const [mode, setMode] = useState(initialMode);
+const [history, setHistory] = useState([initialMode]);
 
-  function transition(newMode, replace = false) {
-    setMode(newMode);
-    if (replace) {
-      setHistory(prevHistory => [...prevHistory.slice(0, -1), newMode]);
-    } else {
-      setHistory(prevHistory => [...prevHistory, newMode]);
-    }
-  }
+const transition = (newMode, replace = false) => {
+setMode(newMode);
+setHistory(prevHistory => {
+const updatedHistory = replace
+? [...prevHistory.slice(0, -1), newMode]
+: [...prevHistory, newMode];
+return updatedHistory;
+});
+};
 
-  function back() {
-    if (history.length > 1) {
-      const newHistory = history.slice(0, -1);
-      setHistory(newHistory);
-      setMode(newHistory[newHistory.length - 1]);
-    }
-  }
+const back = () => {
+if (history.length <= 1) return;
+const newHistory = [...history.slice(0, -1)];
+setHistory(newHistory);
+setMode(newHistory[newHistory.length - 1]);
+};
 
-  return { mode, transition, back };
+return { mode, transition, back };
 }
