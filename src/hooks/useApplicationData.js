@@ -53,11 +53,6 @@ export default function useApplicationData() {
       })
   }
 
-
-
-  // both functions retrieve the apointments and the available interviewers for a selected day 
-
-
   // Makes a request to the api and retrieves the data in the data base and assigns it to the declared states
 
   useEffect(() => {
