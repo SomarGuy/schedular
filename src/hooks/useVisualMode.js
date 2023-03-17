@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Empty from "components/Appointment/Empty";
 
 export default function useVisualMode(initialMode) {
 const [mode, setMode] = useState(initialMode);
