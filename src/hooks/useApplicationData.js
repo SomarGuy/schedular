@@ -13,6 +13,7 @@ export default function useApplicationData() {
   // Function alters the day state with the selected state
   const setDay = day => setState({ ...state, day });
 
+
   const bookInterview = (id, interview) => {
 
     const appointment = {
