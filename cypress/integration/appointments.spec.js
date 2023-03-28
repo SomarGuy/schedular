@@ -36,4 +36,20 @@ describe("Appointments", () => {
     cy.contains(".appointment__card--show", "Lydia Miller-Jones");
     cy.contains(".appointment__card--show", "Tori Malcolm");
   });
+
+  it("should cancel an interview", () => {
+    cy.get(".appointment__card--show")
+      .first()
+      .trigger("mouseover");
+    cy.get("[alt=Delete]")
+      .first()
+      .click({ force: true });
+
+    cy.contains("Confirm").click();
+
+    cy.contains("Deleting").should("exist");
+    cy.contains("Deleting").should("not.exist");
+
+    cy.contains(".appointment__card--show", "Archie Cohen").should("not.exist");
+  });
 });
