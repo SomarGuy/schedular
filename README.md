@@ -8,23 +8,23 @@ Interview Schedular is not suitable for real-world production use and is only fo
 
 ## **Screenshots**
 ### Home
-!['Home Page']()
+!['Home Page'](https://github.com/SomarGuy/schedular/blob/master/docs/Home.png?raw=true)
 Home page of Schedular.
 
 ### Book Appointment
-!['Book-an-appointment']()
+!['Book-an-appointment'](https://github.com/SomarGuy/schedular/blob/master/docs/Book%20Appointment.png?raw=true)
 A user can choose any empty slot to book an appointment.
 
 ### No Spots Available
-!['No-spots-available']()
+!['No-spots-available'](https://github.com/SomarGuy/schedular/blob/master/docs/NoSpots.png?raw=true)
 When no spots are available, it'll show there are no spots available.
 
 ### Deleting Appointment
-!['Deleting-appointment']()
+!['Deleting-appointment'](https://github.com/SomarGuy/schedular/blob/master/docs/Delete.png?raw=true)
 When a user wants to delete an appointment, there will be a confirmation popup.
 
 ### Edit Appointment
-!['Edit-appointment']()
+!['Edit-appointment'](https://github.com/SomarGuy/schedular/blob/master/docs/Edit.png?raw=true)
 When a user wants to edit an appointment, there will be a option to edit the name and interviewer.
 
 
