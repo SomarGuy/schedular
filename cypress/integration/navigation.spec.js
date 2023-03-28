@@ -3,9 +3,9 @@ describe("Navigation", () => {
     cy.visit("/");
   });
 
-  it("should navigate to Tuesday and check the background color", () => {
+  it("should navigate to Tuesday and check for the day-list__item--selected class", () => {
     cy.contains("li", "Tuesday")
       .click()
-      .should("have.css", "background-color", "rgb(242, 242, 242)");
+      .should("have.class", "day-list__item--selected");
   });
 });
