@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { render, cleanup, waitForElement, getByText, fireEvent, getByAltText, getAllByTestId, getByLabelText, getByPlaceholderText, getByDisplayValue, getByTitle, getByRole, getByTestId, queryByText } from "@testing-library/react";
+import { render, cleanup, waitForElement, getByText, fireEvent, getByAltText, getAllByTestId, getByPlaceholderText, queryByText } from "@testing-library/react";
 
 
 import Application from "components/Application";
@@ -69,9 +69,8 @@ describe("Application", () => {
     expect(getByText(appointment, /Confirm/i));
     // 5. Click the Confirm Button
     fireEvent.click(getByText(appointment, /Confirm/i));
-    // 6. CHeck that the element with the text "Deleting" is Displayed
+    // 6. Check that the element with the text "Deleting" is Displayed
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
-
     // 7. Wait until the element with Alt Text "Add" is displayed
     await waitForElement(() => getByAltText(appointment, "Add"));
     // 8. Check that the DayListItem with the text "Monday" also has the text "1 spot remaining".
